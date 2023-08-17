@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Partners -->
+
+<section id="partners" class="mt-lg-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h4 style="font-size:18px ; color: rgb(127, 111, 89); font-weight:400" class="mb-4">OUR PARTNERS
+                </h4>
+                <div class="row">
+                    <div class="col-lg-12" id="card_card">
+                        <div class="card" style="height: 77rem ;" id="partners-card">
+                            <div id="card_img1">
+                                <img src="{% static 'img/Schedule/pexels-pavel-danilyuk-5520297.jpg'%}" class="" alt="Not found">
+                            </div>
+                            <div class="card-body text-center mt-4">
+                                <h4>Long Island Chess Mates (Syosset)</h4>
+                                <p>The Long Island Chess Mates is a program dedicated to teaching and improving the
+                                    chess skills of Long Island's youth. Their dedication to the game's fundamentals
+                                    have enabled them to help their students improve exponentially, and, in some
+                                    cases, reach master status.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

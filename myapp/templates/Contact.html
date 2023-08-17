@@ -1,0 +1,161 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <!-- Contact us -->
+
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="contact-us">
+                        <h1>CONTACT US</h1>
+                        <div class="row mt-5">
+                            <div class="col-lg-8 mx-auto">
+                                <div id="alertContact" class="alert alert-success" style="display:none;" role="alert">
+                                  Thank you for getting in touch! We appreciate you contacting us
+                                </div>
+                                <iframe name="dummy-frame" id="dummy-frame" style="display:none;"></iframe>
+                                <form onsubmit="sendEmail()" target="dummy-frame">
+                                    <!-- Name input -->
+                                    <div class="form-outline mb-4">
+                                        <input type="text" id="form4Example1" class="form-control" required/>
+                                        <label class="form-label" for="form4Example1">Name</label>
+                                    </div>
+
+                                    <!-- Email input -->
+                                    <div class="form-outline mb-4">
+                                        <input type="email" id="form4Example2" class="form-control" required/>
+                                        <label class="form-label" for="form4Example2">Email address</label>
+                                    </div>
+                                    <!-- Message input -->
+                                    <div class="form-outline mb-4">
+                                        <textarea class="form-control" id="form4Example3" rows="6" required></textarea>
+                                        <label class="form-label" for="form4Example3">Message</label>
+                                    </div>
+
+                                    <!-- Submit button -->
+                                    <div class="text-center mt-5">
+                                        <button type="submit" class="mb-4">SEND</button>
+                                    </div>
+                                </form>
+
+                                <p class="mt-5">This site is protected by reCAPTCHA and the Google <a href="">Privacy
+                                        Policy</a> and
+                                    <a href="">Terms of Service</a> apply.
+                                </p>
+
+                                <h4 class="my-5">Interested in a free trial class? Reach out for more information!</h4>
+                                <h4>Great Knights Chess</h4>
+
+                                <p class="address my-3">6045 South Rainbow Boulevard, Las Vegas, Nevada 89118, United
+                                    States</p>
+                                <p class="address">516-840-9000</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!--<script src="https://smtpjs.com/v3/smtp.js">-->
+<!--</script>-->
+<script>
+    function sendEmail() {
+         var name=document.getElementById("form4Example1").value;
+         var email=document.getElementById("form4Example2").value;
+         var message=document.getElementById("form4Example3").value;
+         let contactInfo={
+            name:name,
+            email:email,
+            message:message,
+         }
+         $(document).ready(function () {
+             $.ajax({
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                type: 'POST',
+                url: '{% url 'contact' %}',
+                headers: {//<==
+                    "X-CSRFTOKEN": "{{ csrf_token }}"//<==
+                },
+                data: JSON.stringify(contactInfo),
+                success: function(data) {
+                //Success code
+                    if(data.status==='200'){
+                        document.getElementById("alertContact").style.display="block";
+                        document.getElementById("form4Example1").value="";
+                        document.getElementById("form4Example2").value="";
+                        document.getElementById("form4Example3").value="";
+                    }
+                },
+                failure: function (response) {
+                    $('#result').html(response);
+                }
+            });
+        });
+
+    }
+</script>
+<script>
+        //your javascript goes here
+        var currentTab = 0;
+        document.addEventListener("DOMContentLoaded", function (event) {
+
+
+            showTab(currentTab);
+
+        });
+
+        function showTab(n) {
+            var x = document.getElementsByClassName("tab-tab");
+            x[n].style.display = "block";
+            if (n == 0) {
+                document.getElementById("prevBtn").style.display = "none";
+            } else {
+                document.getElementById("prevBtn").style.display = "inline";
+            }
+            if (n == (x.length - 1)) {
+                document.getElementById("nextBtn").innerHTML = "Submit";
+            } else {
+                document.getElementById("nextBtn").innerHTML = "Next";
+            }
+            fixStepIndicator(n)
+        }
+
+        function nextPrev(n) {
+            var x = document.getElementsByClassName("tab-tab");
+            if (n == 1 && !validateForm()) return false;
+            x[currentTab].style.display = "none";
+            currentTab = currentTab + n;
+            if (currentTab >= x.length) {
+                document.getElementById("nextprevious").style.display = "none";
+                document.getElementById("all-steps").style.display = "none";
+                document.getElementById("register").style.display = "none";
+                document.getElementById("text-message").style.display = "block";
+            }
+            showTab(currentTab);
+        }
+
+        function validateForm() {
+            var x, y, i, valid = true;
+            x = document.getElementsByClassName("tab-tab");
+            y = x[currentTab].getElementsByTagName("input");
+            for (i = 0; i < y.length; i++) {
+                if (y[i].value == "") {
+                    y[i].className += " invalid";
+                    valid = false;
+                }
+            }
+            if (valid) { document.getElementsByClassName("step-step")[currentTab].className += " finish"; }
+            return valid;
+        }
+
+        function fixStepIndicator(n) {
+            var i, x = document.getElementsByClassName("step-step");
+            for (i = 0; i < x.length; i++) { x[i].className = x[i].className.replace(" active", ""); }
+            x[n].className += " active";
+        }
+    </script>
+
+{% endblock %}

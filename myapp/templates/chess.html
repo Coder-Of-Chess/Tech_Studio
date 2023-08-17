@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Chess.com Daily Puzzle-->
+
+
+<section id="chess" class="mt-lg-3">
+	<p align="center">
+		<div class="card-body text-center mt-4">
+			<h4>Daily Puzzle</h4>
+         	<iframe src="https://chess.com/daily_puzzle" style="width: 800px; height: 400px;" marginheight="1" marginwidth="1" seamless="seamless" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
+		</div>
+        <div class="card-body text-center mt-4">
+             <h4>Games Played By Our Knights</h4>
+              <iframe id="10908699" allowtransparency="true" frameborder="0" style="width:100%;border:none;" src="//www.chess.com/emboard?id=10908699"></iframe><script>window.addEventListener("message",e=>{e['data']&&"10908699"===e['data']['id']&&document.getElementById(`${e['data']['id']}`)&&(document.getElementById(`${e['data']['id']}`).style.height=`${e['data']['frameHeight']+30}px`)});</script>
+        </div>
+    </p>
+</section>
+
+
+{% endblock %}

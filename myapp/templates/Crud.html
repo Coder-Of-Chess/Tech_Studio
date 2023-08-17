@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="main">
+    {% for data in dataset %}.
+    {{data.id}}
+    <h3>Type:</h3>{{ data.type }}<br/>
+    <h3>Description:</h3>{{ data.description }}<br/>
+    <h3>School Name:</h3>{{ data.name }}<br/>
+    <h3>Quantity:</h3>{{ data.quantity }}<br/>
+    <h3>Amount:</h3>{{ data.amount }}<br/>
+    <h3>DueNow:</h3>{{ data.dueNow }}<br/>
+    <h3>Deposite Amount:</h3>{{ data.depositAmount }}<br/>
+    <hr/>
+
+    {% endfor %}
+<form method="POST" enctype="multipart/form-data">
+
+<!--     Security token -->
+    {% csrf_token %}
+
+    <!-- Using the formset -->
+<!--    {{ form.as_p }}-->
+    <input type="submit" value="Submit">
+</form>
+</div>
+
+{% endblock %}

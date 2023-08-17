@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<script>
+    function addToCart(a)
+    {
+        var x = document.getElementById("quantity").value
+        localStorage.setItem("items",JSON.stringify(a));
+        localStorage.setItem("quantity",document.getElementById("quantity").value);
+    }
+</script>
+<!-- Product Details -->
+<section id="product-Details">
+    <div class="container">
+        <!-- Bread Crumb    -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item" id="bread-bread"><a href="{% url 'products' %}"><i
+                        class="fa-solid fa-caret-left me-2"></i>All Products</a></li>
+            </ol>
+        </nav>
+        {% for products in products %}
+        <div class="row mt-4">
+            <div class="col-lg-6 col-md-6">
+                <div class="xzoom-container">
+                    <div id="img-container">
+                        <img alt="" class="img-fluid w-100 pb-1 xzoom" id="Mainimg"
+                             src="https://greatknightschess.com/media/{{products.image}}" width="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 mt-lg-0 mt-md-0 mt-4">
+                <div class="product-desc">
+                    <h1>{{products.product_name}}</h1>
+                    <p>${{products.price}}</p>
+                    <p class="product-spec mt-lg-5 mt-md-3 mt-4">{{products.description}}
+                    </p>
+                    <!--                    <form method="post">{% csrf_token %}-->
+                    <div class="d-flex flex-column mb-lg-5 mb-md-4 mb-4">
+                        <label for="quantity">Quantity</label>
+                        {% if products.quantity <= 5 %}
+                            <input class="col-lg-2 col-3" id="quantity" max="{{ products.quantity }}" min="1" name="quantity" required type="number" oninput="handleInput(this)">
+                        {% else %}
+                            <input class="col-lg-2 col-3" id="quantity" max="5" min="1" name="quantity" required type="number">
+                        {% endif %}
+                    </div>
+
+                    <a class="d-lg-inline d-md-inline d-flex justify-content-center" onclick="AddtoCart()"
+                       type="button">
+                        ADD TO CART
+                    </a>
+                    <div class="alert alert-warning alert-dismissible fade show" id="showAlert" role="alert"
+                             style="display:none; margin-top:10px;">
+                            Add Quantity
+                            <button onclick="close()" aria-label="Close" class="btn-close" data-bs-dismiss="alert" type="button"></button>
+
+                        </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    </div>
+</section>
+<script>
+function handleInput(input) {
+  if (!input.validity.valid) {
+    input.value = '';
+  }
+}
+function close(){
+    document.getElementById('showAlert').style.display = 'none';
+}
+    function AddtoCart() {
+        let items = JSON.parse(localStorage.getItem("items"));
+        console.log(items,'items');
+        var x=document.getElementById("quantity").value;
+        if(x>0){
+            let cartData=[];
+            if(items){
+                cartData=items;
+            }
+            {% for products in products %}
+            let data={
+                quantity: x,
+                id:"{{products.id}}",
+                name:"{{products.product_name}}",
+                price:"{{products.price}}",
+                description:"{{products.description}}",
+                image:"{{products.image}}",
+
+            }
+            {% endfor %}
+            cartData.push(data);
+            localStorage.setItem('items', JSON.stringify(cartData));
+            console.log(cartData,'data');
+            updateCart();
+            window.location.href='{% url 'productForm' %}'
+            }
+        else{
+            document.getElementById("showAlert").style.display='inline';
+        }
+    }
+
+
+
+</script>
+{% endblock %}

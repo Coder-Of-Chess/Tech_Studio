@@ -1,0 +1,299 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- sign-up -->
+<section id="disclaimer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="sign-up">
+                    <h1>*SIGN UP DISCLAIMER*</h1>
+                    <p>Once you've signed up and paid for the program, you <strong>DO NOT</strong> have to wait
+                        until the date you selected for your child to attend. They can participate
+                        <strong>IMMEDIATELY</strong>
+                        once they've signed up!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="sign-up-tabs">
+    <div class="container">
+        <div class="row">
+            <h2 style="font-size:18px;color: rgb(127, 111, 89); line-height: 1.4; letter-spacing:0.125em ;">SIGN UP!
+            </h2>
+            <div class="col-lg-12 mx-auto mt-4">
+                <div class="tab" role="tabpanel">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs d-flex justify-content-center" role="tablist">
+                        <li role="presentation" class="active"><a href="#Section1" aria-controls="home" role="tab"
+                                                                  data-toggle="tab">All Services</a></li>
+                        <li role="presentation"><a href="#Section2" aria-controls="profile" role="tab"
+                                                   data-toggle="tab">In School Sessions</a></li>
+
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content tabs">
+                        <div role="tabpanel" class="tab-pane  in active mt-3" id="Section1">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="tab" role="tabpanel">
+                                        <!-- Nav tabs -->
+                                        <ul class="nav nav-tabs" role="group" id="all-services"
+                                            aria-label="Basic checkbox toggle button group">
+                                            <li role="presentation" class="active"><a href="#Section3"
+                                                                                      aria-controls="home" role="tab"
+                                                                                      data-toggle="tab"
+                                                                                      id="appoint-section">Appointments</a>
+                                            </li>
+                                            <li role="presentation"><a href="#Section4" aria-controls="profile"
+                                                                       role="tab" data-toggle="tab"
+                                                                       id="event-section">Classes/Events</a></li>
+
+                                        </ul>
+
+                                        <!-- Tab panes -->
+
+                                        <div class="tab-content tabs">
+                                            <div role="tabpanel" class="tab-pane  in active mt-3" id="Section3">
+                                                <div class="row">
+                                                    {% for a in mymembers %}
+                                                    <div class="col-lg-4 col-md-6 mx-auto mt-3">
+                                                        <div class="appointment-content text-center p-5">
+                                                            <h4>{{a.school_name}} - {{a.session}}</h4>
+
+                                                            <p class="mb-4">{{a.duration}} | ${{a.price}}</p>
+
+                                                            <a onclick="addService({{a.id}})">
+                                                                SIGN UP/PAY
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+</section>
+
+<!-- Kids-Program -->
+
+<section id="kids-program">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="kids">
+                    <h4 class=" mb-4">Kids Program Details</h4>
+                    <ul>
+                        <p><strong>OUR AFTERSCHOOL ACTIVITY PROGRAM</strong></p>
+                        <strong>
+                            <li>Open K-12</li>
+                        </strong>
+                        <strong>
+                            <li>Training from expert instructors</li>
+                        </strong>
+                        <strong>
+                            <li>10 Week Session - One 2 hour class per week</li>
+                        </strong>
+                        <strong>
+                            <li>Boards, pieces and other chess materials provided</li>
+                        </strong>
+                        <strong>
+                            <li>Class Tournament with prizes awarded at the end of the session</li>
+                        </strong>
+                        <strong>
+                            <li>$250 per 10-week session</li>
+                        </strong>
+
+                    </ul>
+
+                    <p class="my-5">Each two-hour class includes one hour of lesson, 40 minutes of gameplay, and 20
+
+                        minutes of personalized coaching. At the end of each 10- week session we feature an awards
+                        ceremony in which we encourage family and friends to attend where we will provide food and
+                        drinks. There will be adult supervision provided and students will not be left alone whether
+                        they show up early or have to stay late due to unforeseen circumstances.</p>
+
+                    <em>
+                        If students do not wish to or are not able to return for the rest of the session
+                        after the first week we refund the payment.
+                    </em>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Package -->
+
+<section id="package">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="packages">
+                    <h2>PACKAGE FOR ANY AGES</h2>
+                    <div class="row mt-5">
+                        <div class="col-lg-4">
+                            <div>
+                                <img src="{% static 'img/Package/package.jpg'%}" width="100%" alt="not found">
+                            </div>
+                        </div>
+                        <div class="col-lg-8 d-flex align-items-center p-5">
+                            <div class="package-plan">
+                                <h4 class="mb-3">10 one-hour lesson plan</h4>
+                                <p>rate of $500 or $65 per private class</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section id="FAQ">
+    <div class="container">
+        <div class="row">
+            <h2 class="mb-4" style=" font-size: 18px;
+                line-height: 1.4;
+                letter-spacing: 0.125em;
+                color: rgb(127, 111, 89);">FAQS</h2>
+            <div class="col-lg-8 mx-auto">
+                <div class="faq">
+                    <div class="accordion accordion-flush" id="accordionExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                    <strong>What is the cost</strong>
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse "
+                                 aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <p>Our rates vary based on the package</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    <strong>Is there an age minimum and maximum?</strong>
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                 data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <p>Absolutely not!!</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseThree" aria-expanded="false"
+                                        aria-controls="collapseThree">
+                                    <strong>Can students from any school come to all locations?</strong>
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse"
+                                 aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <p>Yes!!</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingfour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapsefour" aria-expanded="false"
+                                        aria-controls="collapsefour">
+                                    <strong>Do we offer a trial?</strong>
+                                </button>
+                            </h2>
+                            <div id="collapsefour" class="accordion-collapse collapse" aria-labelledby="headingfour"
+                                 data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <p>Yes. All members are asked to sign up originally, but if they don't want to
+                                        continue after
+                                        the first class we give full refunds on their payment.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingfive">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapsefive" aria-expanded="false"
+                                        aria-controls="collapsefive">
+                                    <strong>What if we have to miss a week or two?</strong>
+                                </button>
+                            </h2>
+                            <div id="collapsefive" class="accordion-collapse collapse" aria-labelledby="headingfive"
+                                 data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <p>It is not a big deal, our instructors will work privately to fill in members
+                                        on what they
+                                        have missed. Also we will allot time to play any tournament games that may
+                                        have been missed.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    function addService(noon){
+        let x = JSON.parse(localStorage.getItem("services"));
+        console.log(x);
+        if(x!=null){
+        for(let j=0;j<x.length;j++){
+            const element = document.getElementById(`qadeer2${j}`);
+            element.remove();
+        }
+        }
+        let servicedata=[];
+        if(JSON.parse(localStorage.getItem("services"))){
+            servicedata = JSON.parse(localStorage.getItem("services"));
+        }
+        {% for a in mymembers %}
+        if( {{a.id}} == noon ){
+            let data={
+                school:"{{a.school_name}}",
+                session:"{{a.session}}",
+                time:"{{a.time}}",
+                instructor_name:"{{a.instructor_name}}",
+                price:"{{a.price}}",
+                id:"{{a.id}}",
+            }
+            servicedata.push(data)
+            localStorage.setItem("services",JSON.stringify(servicedata))
+        }
+        {% endfor %}
+        updateCart();
+        if (sidenav1.style.width == "0px") {
+        sidenav1.style.width = "2rem";
+        // sidenav1.style.height = "167vh"
+        document.body.style['overflow-y'] = 'hidden';
+        if (window.matchMedia('(max-width: 991.98px)').matches) {
+            sidenav1.style.width = "24rem";
+        }
+        else {
+            sidenav1.style.width = "30rem";
+        }
+    }
+    }
+</script>
+{% endblock %}

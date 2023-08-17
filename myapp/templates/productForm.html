@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Product Details-form -->
+<section id="product-Details-form">
+    <div class="container">
+        <!-- Bread Crumb    -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item" id="bread-bread"><a href="{% url 'products' %}"><i
+                        class="fa-solid fa-caret-left me-2"></i>Continue shopping</a></li>
+            </ol>
+        </nav>
+        <center><img style="display:none;" id="CART_EMPTY_TEXT" class="mt-lg-4 mt-md-5 mt-3" src="{% static '/img/Review/empty.png' %}"></center>
+        <div class="row mt-4" id="isThere">
+            <div class="col-10 mx-auto">
+                <div class="pro-detail-head d-flex justify-content-between text-end ms-auto py-3">
+                    <div class="col-5"></div>
+
+                    <strong class="col-2 text-center">Price</strong>
+                    <strong class="col-3 text-center">Quantity</strong>
+                    <strong class="col-2">Total</strong>
+                </div>
+                <div id="productsFormData">
+                </div>
+                <div class="text-end pro-detail-name  my-4">
+                    <p><strong>Subtotal:</strong><span id="subtotal">$0</span></p>
+                </div>
+                <div class="pro-detail-btn d-lg-flex d-md-flex justify-content-end text-center">
+{#                    <a onclick="updateQuantity()" class="update-btn">#}
+{#                        Update cart#}
+{#                    </a>#}
+                    <a href="{% url 'payment' %}"
+                       class=" checkout-btn d-flex justify-content-center  mt-lg-0 mt-md-0 mt-3">
+                        <strong>CHECKOUT</strong>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+<script>
+        function updateProductForm(){
+        var items = JSON.parse(localStorage.getItem('items'));
+        console.log(items,'items');
+        if(items==null || items==0){
+        console.log('isThere');
+            document.getElementById("isThere").style.display="none";
+            document.getElementById("CART_EMPTY_TEXT").style.display="inline";
+
+        }
+        var total = 0;
+        var productTotal=0;
+        if(items!=null || items!=0) {
+        for(var i=0; i<items.length; i++) {
+            productTotal=(items[i].price*items[i].quantity);
+            document.getElementById("productsFormData").insertAdjacentHTML("afterend",
+                        `
+                        <div id='product2${i}' class="d-lg-flex d-md-flex justify-content-between align-items-center pro-detail py-3">
+
+                        <div class="col-lg-5 col-md-5 col-12 d-flex align-items-center pro-detail-name">
+                            <img src='https://greatknightschess.com/media/${items[i].image}' width="65px" height="65px">
+                            <p class="ms-2">${items[i].name}</p>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-12 text-lg-center text-md-center text-end pro-detail-name">
+                            <p>$${items[i].price}</p>
+                        </div>
+
+                        <div class="col-lg-3 col-md-2 col-12 text-lg-center text-md-center text-end">
+                            <input type="number" id="quantity${i}" name="quantity" value="${items[i].quantity}" min="1" max="5" class="col-3" disabled>
+                            <i class="fa-solid fa-xmark ms-2" style="font-size:1.5rem;cursor:pointer;" onclick="removeFromProductCart(${i})"></i>
+                        </div>
+
+                        <div class="col-lg-2 col-md-2 col-12 text-end pro-detail-name mt-lg-0 mt-md-0 mt-3">
+                            <p>$${productTotal}</p>
+                        </div>
+                        </div>
+                        `
+                        );
+                        total += parseInt(productTotal);
+            }
+            console.log(total,'totalamount');
+            document.getElementById("subtotal").innerHTML = `$${total}`;
+        }
+        }
+        updateProductForm();
+        function removeFromProductCart(index) {
+            let x = JSON.parse(localStorage.getItem("items"));
+            console.log(x)
+            console.log(index,'index')
+            let filtered2 = x.filter((item,i) => i !== index)
+            console.log(filtered2,'filter one');
+            localStorage.setItem("items", JSON.stringify(filtered2));
+            if(x){
+            for(let j=0;j<x.length;j++){
+            console.log(x.length,'dd');
+            console.log(`product2${j}`)
+            const element = document.getElementById(`product2${j}`);
+            element.remove();
+            }
+
+            }
+            updateProductForm();
+            updateCart();
+        }
+        function updateQuantity(){
+            var items=JSON.parse(localStorage.getItem("items"));
+            console.log("items",JSON.parse(localStorage.getItem("items")))
+            for(let i=0;i<items.length;i++){
+            items[i].quantity=document.getElementById(`quantity${i}`).value;
+            }
+            localStorage.setItem("items",JSON.stringify(items));
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+{% endblock %}

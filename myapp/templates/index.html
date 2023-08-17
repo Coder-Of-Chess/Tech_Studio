@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/dd93bccd80.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    <title>Hello, world!</title>
+</head>
+
+<body>
+
+    <header id="Main-header" data-spy="affix" data-offset-top="197">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 pt-lg-5 pb-lg-2 pb-md-2 pt-md-4 pt-4 pb-3">
+                    <div class="d-flex justify-content-between">
+                        <div class="col-2 d-flex align-items-center justify-content-center">
+                            <i class="fa-solid fa-bars" id="menubar"></i>
+                        </div>
+                        <div class="col-8 text-center logo d-flex justify-content-center">
+                            <h3><a href="index.html">Great Knights Chess</h3></a>
+                        </div>
+                        <div class="col-2">
+                            <div
+                                class="header-icons d-flex justify-content-lg-end justify-content-md-end justify-content-center align-items-center  position-relative">
+
+                                <!-- Define a button to toggle the search area -->
+                                <form role="search" method="get" class="search-form" action="">
+                                    <label>
+
+                                        <input type="search" class="search-field mt-0 " placeholder="Search …" value=""
+                                            name="s" title="Search for:" />
+                                    </label>
+                                    <input type="submit" class="search-submit" value="Search" />
+                                </form>
+                                <div class="dropdown ms-3 mt-lg-0 mt-3" id="cart-dropdown">
+                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fa-solid fa-cart-shopping"></i>
+                                    </a>
+
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <li><a class="dropdown-item" id="cart-item" href="Products.html"><span
+                                                    class="items-details me-2">0</span>Products</a></li>
+                                        <hr>
+                                        <li><a class="dropdown-item" id="cartitems" href="#"><span
+                                                    class="items-details me-2">0</span>Services</a></li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+    <!-- Navbar -->
+    <section id="navigation" data-spy="affix" data-offset-top="197">
+        <nav class="container nav_items py-3 px-0">
+            <ul class="d-flex flex-row justify-content-between navbar-nav">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link active">HOME</a>
+                </li>
+                <li class="nav-item">
+                    <a href="schedule.html" class="nav-link">SCHEDULE</a>
+                </li>
+                <li class="nav-item">
+                    <a href="Partners.html" class="nav-link">OUR PARTNERS</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'blog' %}" class="nav-link">BLOG</a>
+                </li>
+                <li class="nav-item">
+                    <a href="Team.html" class="nav-link">MEET THE TEAM</a>
+                </li>
+                <li class="nav-item">
+                    <a href="Signup.html" class="nav-link">SIGN UP!</a>
+                </li>
+                <li class="nav-item">
+                    <a href="chess.html" class="nav-link">CHESS</a>
+                </li>
+                <li class="nav-item">
+                    <a href="Contact.html" class="nav-link">CONTACT US</a>
+                </li>
+                <li class="dropdown nav-item d-flex align-items-center">
+                    <a class="dropdown-toggle" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"
+                        href="" class="nav-link">MORE</a>
+                    <ul class="dropdown-menu shadow py-2" aria-labelledby="dropdownMenuLink">
+                        <li class="ps-0"><a class="dropdown-item" id="More" href="Flyers.html">FORMS AND FLYERS</a></li>
+                        <li class="ps-0"><a class="dropdown-item" id="More" href="Products.html">SHOP</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+        </nav>
+    </section>
+
+
+    <!-- sidenav -->
+
+    <section id="sidenav">
+        <div class="nav_items">
+            <a class="fa-solid fa-xmark" id="closemark" style="font-size:25px; position: absolute;
+                right: 38px;top: 2.7%;"></a>
+
+            <ul class="d-flex flex-column justify-content-center navbar-nav p-3 mt-5">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link active">HOME</a>
+                </li>
+                <li class="nav-item">
+                    <a href="schedule.html" class="nav-link">SCHEDULE</a>
+                </li>
+                <li class="nav-item">
+                    <a href="Partners.html" class="nav-link">OUR PARTNERS</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'blog' %}" class="nav-link">BLOG</a>
+                </li>
+                <li class="nav-item">
+                    <a href="Team.html" class="nav-link">MEET THE TEAM</a>
+                </li>
+                <li class="nav-item">
+                    <a href="Signup.html" class="nav-link">SIGN UP!</a>
+                </li>
+                <li class="nav-item">
+                    <a href="chess.html" class="nav-link">CHESS</a>
+                </li>
+                <li class="nav-item">
+                    <a href="Contact.html" class="nav-link">CONTACT US</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">FORMS AND FLYERS</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">SHOP</a>
+                </li>
+                <div class="input-group">
+                    <i class="fa fa-search" id="search-search"></i>
+                    <input class="form-control" type="search" placeholder="Search Products" value="" id="">
+                </div>
+
+            </ul>
+        </div>
+
+        </div>
+    </section>
+    <!-- sidenav-2 -->
+
+    <section id="sidenav1">
+        <div class="nav_items">
+            <div class="d-flex justify-content-between p-3 side-nav-header">
+                <div>
+                    <i class="fa-solid fa-cart-shopping mt-1" style="color:black;"></i>
+                    <span style="border-radius:50%; background-color:#2b2b2b; color: white; padding: 1px 6px;">0</span>
+                </div>
+                <a class="fa-solid fa-xmark" id="closemark1" style="font-size:25px;"></a>
+            </div>
+
+            <div class="sidenav-content text-center p-5">
+                <h2>Cart is empty</h2>
+                <p>Looks like you just haven't found the right thing yet.</p>
+                <a href="">Browse Services</a>
+            </div>
+        </div>
+
+        </div>
+    </section>
+
+
+    <!-- HOME -->
+    <section id="home" class="">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-7 p-0">
+                            <figure style="margin: 0 0 0rem;" class="Figure-img">
+                                <img src="img/home/img1.jpg" width="" alt="">
+                            </figure>
+                        </div>
+                        <div class="col-lg-4 col-md-5 Welcome text-center p-5 d-flex align-items-center">
+                            <div class="mx-auto">
+                                <h2 class="mb-2" style="letter-spacing: 0.125em;">WELCOME</h2>
+                                <h1 class="mb-5">Welcome to <br>
+                                    Great Knights Chess! <br>
+                                    Proud Home of the Vegas <br> Great Knights</h1>
+                                <a href="" class="">
+                                    SIGN UP NOW
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- WELCOME -->
+
+    <section id="Knights">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="text-center Great-chess p-2">
+                        <h4>Welcome to Great Knights Chess</h4>
+                        <p>Great Knights Chess is an instructional chess organization. The Vegas Great Knights are our
+                            Las Vegas team. Our staff is comprised of highly skilled coaches who specialize in working
+                            with children and teens. The Vegas Great Knights staff implements the chess skills that are
+                            well researched to be extremely beneficial. We also add in the development of life skills.
+                            These include social, mental, and emotional, to name a few. Any individual who signs with
+                            the Vegas Great Knights is part of the team. They have opportunities to meet and play with
+                            other members of the team at various team events. We have team shirts and jerseys that
+                            members often sport, proudly representing their last name on their backs.</p>
+                        <p class="mb-4">Our coaches pass background checks and are tested not only for their chess and
+                            teaching
+                            abilities but also for their attitude and how it will translate to our team members'
+                            experience.</p>
+
+                        <a href="">https://fb.watch/6cAvs1d1RG/.</a>
+                        <div class="mt-5">
+                            <a href="" class="signup">
+                                FIND OUT MORE
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h4 style="font-size:18px ; color: rgb(127, 111, 89); font-weight:400" class="mb-4">ABOUT THE CLASS
+                    </h4>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-12" id="card_card">
+                            <div class="card " style="height: auto ;">
+                                <div id="card_img">
+                                    <img src="img/Card images/pexels-buro-millennial-1438072.jpg" class="" alt="...">
+                                </div>
+                                <div class="card-body text-center">
+                                    <h4>Learn New Skills</h4>
+                                    <p>Students will learn new chess skills, whether it is basics for newcomers or more
+                                        advanced strategies for experienced players. Great Knights Chess members are a
+                                        team so we all work and play together. We have tournament games in which we
+                                        encourage healthy competition while we also promote<span
+                                            id="dots2">...</span><span id="more2"> and teach life skills of working with
+                                            others as a team and community.</span></p>
+                                    <button onclick="myBtn2()" id="myBtn2" class="read">Read more</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-12 mt-lg-0 mt-md-0 mt-4" id="card_card">
+                            <div class="card " style="height: auto;">
+                                <div id="card_img">
+                                    <img src="img/Card images/pexels-kobe-1516440.jpg" class="" alt="...">
+                                </div>
+                                <div class="card-body text-center">
+                                    <h4>Our Community</h4>
+                                    <p>The Vegas Great Knights represent our Las Vegas sector of Great Knights Chess.
+                                        The picture above was taken at John C. Bass elementary school where the Vegas
+                                        Great Knights meet every Wednesday. We promote important life skills like
+                                        teamwork, harmony, and community.<span id="dots3">...</span><span id="more3">
+                                            All members of Great Knights Chess are a part of our team. We encourage our
+                                            members to take pride in their team and community.</span>
+                                    </p>
+                                    <button onclick="myBtn3()" id="myBtn3" class="read">Read more</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog -->
+    <section id="blog">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h4 style="font-size:18px ; color: rgb(127, 111, 89); font-weight:400" class="mb-4">VGK BLOG
+                    </h4>
+                    <div class="d-flex flex-column mt-3 Categories-section mb-4">
+                        <a href="" style="font-size:18px; color:#1b1b1b">All Posts</a>
+
+                        <a href="" style="font-size:18px; color:#827463; font-weight:700" class="mt-3">Chess in the
+                            World</a>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-9">
+                            <div class="row p-lg-4 g-5">
+
+                                <div class="col-12">
+                                    <div class="d-lg-flex d-md-flex">
+                                        <div class="Blog-img col-lg-3 col-md-3 col-12 mx-lg-0 mx-md-0 mx-auto">
+                                            <img src="img/Blog/blog1.jpg">
+                                        </div>
+                                        <div
+                                            class="blog-info col-lg-9 col-md-9 col-12 ms-lg-3 ms-md-3 mt-lg-0 mt-md-0 mt-4 ">
+                                            <h5>February 28, 2022 | Chess in the World</h5>
+                                            <h4>Tim Ferriss podcast with Arnold Schwarzenegger highlights</h4>
+                                            <p>In Tim Ferriss' most recent podcast he had on the famous Arnold
+                                                Schwarzenegger as
+                                                his guest. Arnold went out of his way to discuss how important to him
+                                                afterschool
+                                                programs for kids are. He highlighted chess specifical...</p>
+                                            <a href="B-detail.html" class="read">Continue Reading</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr class="my-5" id="horizontal-line">
+                                <div class="col-12">
+                                    <div class="d-lg-flex d-md-flex">
+                                        <div class="Blog-img col-lg-3 col-md-3 col-12 mx-lg-0 mx-md-0 mx-auto">
+                                            <img src="img/Blog/blog2.jpg">
+                                        </div>
+                                        <div
+                                            class="blog-info col-lg-9 col-md-9 col-12 ms-lg-3 ms-md-3 mt-lg-0 mt-md-0 mt-4 ">
+                                            <h5>February 28, 2022 | Chess in the World</h5>
+                                            <h4>As seen in the January 2022 edition of parenting magazine:</h4>
+                                            <p>In Tim Ferriss' most recent podcast he had on the famous Arnold
+                                                Schwarzenegger as
+                                                his guest. Arnold went out of his way to discuss how important to him
+                                                afterschool
+                                                programs for kids are. He highlighted chess specifical...</p>
+                                            <a href="B-detail.html" class="read">Continue Reading</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="col-lg-3 side-border p-3">
+                            <div class="">
+                                <h4>Categories</h4>
+                                <div class="d-flex flex-column mt-3">
+                                    <a href="" style="font-size:18px; color:#1b1b1b">All Posts</a>
+
+                                    <a href="" style="font-size:18px; color:#827463; font-weight:700" class="mt-3">Chess
+                                        in the
+                                        World</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- Photo-Gallery -->
+
+    <section id="Photo-Gallery">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 style="font-size:18px; letter-spacing: 0.125em; font-weight: 400; color: rgb(127, 111, 89);">
+                        BEVERLY MATHIS ELEMENTARY SPRING SESSION!</h2>
+                    <div id="carouselExampleIndicators" class="carousel slide mt-4" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                                class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                                aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                                aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active" id="slider1">
+                                <img src="img/Slider/slider4.jpg" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item" id="slider2">
+                                <img src="img/Slider/slider5.jpg" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item" id="slider3">
+                                <img src="img/Slider/slider6.jpg" class="d-block w-100" alt="...">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Spring-Session -->
+
+    <section id="Spring-session">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 style="font-size:18px; letter-spacing: 0.125em; font-weight: 400; color: rgb(127, 111, 89);">
+                        VEGAS GREAT KNIGHT PHOTO GALLERY</h2>
+                    <div id="carouselExampleIndicators1" class="carousel slide mt-4" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="0"
+                                class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="1"
+                                aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="2"
+                                aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active" id="slider3">
+                                <img src="img/Slider/slider1.jpg" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item" id="slider4">
+                                <img src="img/Slider/slider2.jpg" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item" id="slider5">
+                                <img src="img/Slider/slider3.jpg" class="d-block w-100" alt="...">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators1"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators1"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instructors -->
+
+    <section id="Instructors">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 style="font-size:18px; letter-spacing: 0.125em; font-weight: 400; color: rgb(127, 111, 89);">
+                        MEET OUR INSTRUCTORS</h2>
+                    <div id="slider4" class="mt-4"><img src="img/Slider/slider7.jpg" alt="not found"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div
+                        class="footer-content d-lg-flex d-md-flex justify-content-between text-lg-start text-md-start text-center py-3">
+                        <p>COPYRIGHT &#169; 2022-2023 GREAT KNIGHTS CHESS - ALL RIGHTS RESERVED</p>
+                        <div class="d-flex justify-content-center mt-lg-0 mt-md-0 mt-2">
+                            <a href=""><i class="fa-brands fa-facebook"></i></a>
+                            <a href=""><i class="fa-brands fa-instagram ms-3"></i></a>
+                            <a href=""><i class="fa-brands fa-twitter ms-3"></i></a>
+                            <a href=""><i class="fa-brands fa-skype ms-3"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!----------------------- ReadMore Button ----------------------->
+    <script>
+        function myFunction() {
+            var dots = document.getElementById("dots");
+            var moreText = document.getElementById("more");
+            var btnText = document.getElementById("myBtn");
+
+            if (dots.style.display === "none") {
+                dots.style.display = "inline";
+                btnText.innerHTML = "Read more";
+                moreText.style.display = "none";
+            } else {
+                dots.style.display = "none";
+                btnText.innerHTML = "Read less";
+                moreText.style.display = "inline";
+            }
+        }
+
+        function myBtn() {
+            var dots1 = document.getElementById("dots1");
+            var moreText1 = document.getElementById("more1");
+            var btnText1 = document.getElementById("myBtn1");
+
+            if (dots1.style.display === "none") {
+                dots1.style.display = "inline";
+                btnText1.innerHTML = "Read more";
+                moreText1.style.display = "none";
+            } else {
+                dots1.style.display = "none";
+                btnText1.innerHTML = "Read less";
+                moreText1.style.display = "inline";
+            }
+        }
+
+        function myBtn2() {
+            var dots1 = document.getElementById("dots2");
+            var moreText1 = document.getElementById("more2");
+            var btnText1 = document.getElementById("myBtn2");
+
+            if (dots1.style.display === "none") {
+                dots1.style.display = "inline";
+                btnText1.innerHTML = "Read more";
+                moreText1.style.display = "none";
+            } else {
+                dots1.style.display = "none";
+                btnText1.innerHTML = "Read less";
+                moreText1.style.display = "inline";
+            }
+        }
+        function myBtn3() {
+            var dots1 = document.getElementById("dots3");
+            var moreText1 = document.getElementById("more3");
+            var btnText1 = document.getElementById("myBtn3");
+
+            if (dots1.style.display === "none") {
+                dots1.style.display = "inline";
+                btnText1.innerHTML = "Read more";
+                moreText1.style.display = "none";
+            } else {
+                dots1.style.display = "none";
+                btnText1.innerHTML = "Read less";
+                moreText1.style.display = "inline";
+            }
+        }
+    </script>
+    <script src="js/index.js"></script>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

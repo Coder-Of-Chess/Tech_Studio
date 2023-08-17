@@ -1,0 +1,405 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- HOME -->
+<section id="home" class="">
+    <div class="container">
+        {% if request.GET.q %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            Your Order has been placed Successfully!
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endif %}
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-8 col-md-7 p-0">
+                        <figure style="margin: 0 0 0rem;" class="Figure-img">
+                            <img src="{% static 'img/home/img1.jpg' %}" width="" alt="">
+                        </figure>
+                    </div>
+                    <div class="col-lg-4 col-md-5 Welcome text-center p-5 d-flex align-items-center">
+                        <div class="mx-auto">
+                            <h2 class="mb-2" style="letter-spacing: 0.125em;">WELCOME</h2>
+                            <h1 class="mb-5">Welcome to <br>
+                                Great Knights Chess! <br>
+                                Proud Home of the <br> Great Knights</h1>
+                            <a href="{% url 'signup'%}" class="">
+                                SIGN UP NOW
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- WELCOME -->
+
+<section id="Knights">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="text-center Great-chess p-2">
+                    <h4>Welcome to Great Knights Chess</h4>
+                    <p>Great Knights Chess is an instructional chess organization. The Vegas Great Knights are our
+                        Las Vegas team. Our staff is comprised of highly skilled coaches who specialize in working
+                        with children and teens. The Vegas Great Knights staff implements the chess skills that are
+                        well researched to be extremely beneficial. We also add in the development of life skills.
+                        These include social, mental, and emotional, to name a few. Any individual who signs with
+                        the Vegas Great Knights is part of the team. They have opportunities to meet and play with
+                        other members of the team at various team events. We have team shirts and jerseys that
+                        members often sport, proudly representing their last name on their backs.</p>
+                    <p class="mb-4">Our coaches pass background checks and are tested not only for their chess and
+                        teaching
+                        abilities but also for their attitude and how it will translate to our team members'
+                        experience.</p>
+
+                    <a href="https://fb.watch/6cAvs1d1RG">Check Out Our Facebook</a>
+                    <div class="mt-5">
+                        <a href="https://greatknightschess.com/signup" class="signup">
+                            FIND OUT MORE
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About -->
+
+<section id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h4 style="font-size:18px ; color: rgb(127, 111, 89); font-weight:400" class="mb-4">ABOUT THE CLASS
+                </h4>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-12" id="card_card">
+                        <div class="card shadow card-height" style="height: 724px;">
+                            <div id="card_img">
+                                <img src="{% static 'img/gkc_image1.jpeg'%}" class=""
+                                     alt="...">
+                            </div>
+                            <div class="card-body">
+                                <h4 class="text-center">Learn New Skills</h4>
+                                <p>Students will learn new chess skills, whether it is basics for newcomers or more
+                                    advanced strategies for experienced players. Great Knights Chess members are a
+                                    team so we all work and play together. We have tournament games in which we
+                                    encourage healthy competition<span id="dots2">...</span><span
+                                            id="more2"> while we also promote and teach life skills of working with
+                                        others as a team and community.</span></p>
+                                <a class="read ps-0 d-flex align-items-center" onclick="myBtn2()" id="myBtn2" style="cursor: pointer">
+                                    <span>Read more</span>
+                                    <i class="fa-solid fa-arrow-right ms-1" id="icon"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-12 mt-lg-0 mt-md-0 mt-4" id="card_card2">
+                        <div class="card shadow card-height" style="height: 724px;">
+                            <div id="card_img2">
+                                <img src="{% static 'img/gkc_image2.jpeg'%}" class="" alt="...">
+                            </div>
+                            <div class="card-body">
+                                <h4 class="text-center">Our Community</h4>
+                                <p>The Vegas Great Knights represent our Las Vegas sector of Great Knights Chess.
+                                    The picture above was taken at John C. Bass elementary school where the Vegas
+                                    Great Knights meet every Wednesday. We promote important life skills like
+                                    teamwork, harmony, and<span id="dots3">...</span><span id="more3">
+                                       community. All members of Great Knights Chess are a part of our team. We encourage our
+                                        members to take pride in their team and community.</span>
+                                </p>
+                                <a class="read ps-0 d-flex align-items-center" onclick="myBtn3()" id="myBtn3" style="cursor: pointer">
+                                    <span>Read more</span>
+                                    <i class="fa-solid fa-arrow-right ms-1" id="icon3"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{#<section id="Knights">#}
+{#    <div class="container">#}
+{#        <div class="row">#}
+{#            <div class="col-lg-8 mx-auto">#}
+{#                <div class="text-center Great-chess p-2">#}
+{#                    <div class="mb-5">#}
+{#                        <img src="{%  static 'img/yelp.png' %}" alt="">#}
+{#                    </div>#}
+{#                    <div class="mb-4">#}
+{#                        <img src="{%  static 'img/red-stars.png' %}" alt="">#}
+{#                    </div>#}
+{#                    <p>5 star average rating based on <b>{{ review }}</b> reviews</p>#}
+{#                    <a href="https://www.yelp.com/biz/great-knights-chess-las-vegas" target="_blank">Leave a Yelp#}
+{#                        Review</a>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#</section>#}
+<!-- Blog -->
+<section id="blog">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h4 style="font-size:18px ; color: rgb(127, 111, 89); font-weight:400" class="mb-4">VGK BLOG
+                </h4>
+                <div class="d-flex flex-column mt-3 Categories-section mb-4">
+                    <a href="" style="font-size:18px; color:#1b1b1b">All Posts</a>
+
+                        <a href="" style="font-size:18px; color:#827463; font-weight:700" class="mt-3">Chess in the
+                            World</a>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-9">
+                            <div class="row p-lg-4 g-5">
+
+                                <div class="col-12">
+                                    <div class="d-lg-flex d-md-flex">
+                                        <div class="Blog-img col-lg-3 col-md-3 col-12 mx-lg-0 mx-md-0 mx-auto">
+                                            <img src="{% static 'img/Blog/blog1.jpg' %}">
+                                        </div>
+                                        <div
+                                                class="blog-info col-lg-9 col-md-9 col-12 ms-lg-3 ms-md-3 mt-lg-0 mt-md-0 mt-4">
+                                            <h5>February 28, 2022 | Chess in the World</h5>
+                                            <h4>Tim Ferriss podcast with Arnold Schwarzenegger highlights</h4>
+                                            <p>In Tim Ferriss' most recent podcast he had on the famous Arnold
+                                                Schwarzenegger as
+                                                his guest. Arnold went out of his way to discuss how important to him
+                                                afterschool
+                                                programs for kids are. He highlighted chess specifical...</p>
+                                            <a href="{% url 'b_detail' %}" class="read">Continue Reading</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr class="my-5" id="horizontal-line">
+                                <div class="col-12">
+                                    <div class="d-lg-flex d-md-flex">
+                                        <div class="Blog-img col-lg-3 col-md-3 col-12 mx-lg-0 mx-md-0 mx-auto">
+                                            <img src="{% static 'img/Blog/blog2.jpg' %}">
+                                        </div>
+                                        <div
+                                                class="blog-info col-lg-9 col-md-9 col-12 ms-lg-3 ms-md-3 mt-lg-0 mt-md-0 mt-4">
+                                            <h5>January 15, 2022 | Chess in the World</h5>
+                                            <h4>As seen in the January 2022 edition of parenting magazine:</h4>
+                                            <a href="{% url 'b_detail2' %}" class="read">Continue Reading</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="col-lg-3 side-border p-3">
+                            <div class="">
+                                <h4>Categories</h4>
+                                <div class="d-flex flex-column mt-3">
+                                    <a href="" style="font-size:18px; color:#1b1b1b">All Posts</a>
+
+                                    <a href="" style="font-size:18px; color:#827463; font-weight:700" class="mt-3">Chess
+                                        in the
+                                        World</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo-Gallery -->
+
+    <section id="Photo-Gallery">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 style="font-size:18px; letter-spacing: 0.125em; font-weight: 400; color: rgb(127, 111, 89);">
+                        BEVERLY MATHIS ELEMENTARY SPRING SESSION!</h2>
+                    <div id="carouselExampleIndicators" class="carousel slide mt-4" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                                    class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                                    aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                                    aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active" id="slider1">
+                                <img src="{% static 'img/Slider/slider4.jpg' %}" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item" id="slider2">
+                                <img src="{% static 'img/Slider/slider5.jpg' %}" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item" id="slider3">
+                                <img src="{% static 'img/Slider/slider6.jpg' %}" class="d-block w-100" alt="...">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                                data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                                data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Spring-Session -->
+
+    <section id="Spring-session">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 style="font-size:18px; letter-spacing: 0.125em; font-weight: 400; color: rgb(127, 111, 89);">
+                        VEGAS GREAT KNIGHT PHOTO GALLERY</h2>
+                    <div id="carouselExampleIndicators1" class="carousel slide mt-4" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="0"
+                                    class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="1"
+                                    aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="2"
+                                    aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active" id="slider3">
+                                <img src="{% static 'img/Slider/slider1.jpg' %}" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item" id="slider4">
+                                <img src="{% static 'img/Slider/slider2.jpg' %}" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item" id="slider5">
+                                <img src="{% static 'img/Slider/slider3.jpg' %}" class="d-block w-100" alt="...">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators1"
+                                data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators1"
+                                data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instructors -->
+
+    <section id="Instructors">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 style="font-size:18px; letter-spacing: 0.125em; font-weight: 400; color: rgb(127, 111, 89);">
+                        MEET OUR INSTRUCTORS</h2>
+                    <div id="slider4" class="mt-4"><img src="{% static 'img/Slider/slider7.jpg' %}" alt="not found">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        function myFunction() {
+            var dots = document.getElementById("dots");
+            var moreText = document.getElementById("more");
+            var btnText = document.getElementById("myBtn");
+
+            if (dots.style.display === "none") {
+                dots.style.display = "inline";
+                btnText.innerHTML = "Read more";
+                moreText.style.display = "none";
+            } else {
+                dots.style.display = "none";
+                btnText.innerHTML = "Read less";
+                moreText.style.display = "inline";
+            }
+        }
+
+        function myBtn() {
+            var dots1 = document.getElementById("dots1");
+            var moreText1 = document.getElementById("more1");
+            var btnText1 = document.getElementById("myBtn1");
+
+            if (dots1.style.display === "none") {
+                dots1.style.display = "inline";
+                btnText1.innerHTML = "Read more";
+                moreText1.style.display = "none";
+            } else {
+                dots1.style.display = "none";
+                btnText1.innerHTML = "Read less";
+                moreText1.style.display = "inline";
+            }
+        }
+
+        function myBtn2() {
+            var dots1 = document.getElementById("dots2");
+            var moreText1 = document.getElementById("more2");
+            var btnText1 = document.getElementById("myBtn2");
+            var card2 = document.querySelector("#card_card .card.shadow.card-height");
+            var icon = document.getElementById("icon");
+
+            if (dots1.style.display === "none") {
+                dots1.style.display = "inline";
+                 btnText1.querySelector("span").textContent = "Read more";
+                moreText1.style.display = "none";
+                icon.classList.remove("fa-arrow-up");
+                icon.classList.add("fa-arrow-right");
+                 card2.style.height = "724px";
+            } else {
+                dots1.style.display = "none";
+                btnText1.querySelector("span").textContent = "Read less";
+                moreText1.style.display = "inline";
+                icon.classList.remove("fa-arrow-right");
+                icon.classList.add("fa-arrow-up");
+                 card2.style.height = "auto";
+            }
+        }
+        function myBtn3() {
+            var dots0 = document.getElementById("dots3");
+            var moreText0 = document.getElementById("more3");
+            var btnText0 = document.getElementById("myBtn3");
+            var card3 = document.querySelector("#card_card2 .card.shadow.card-height");
+            var icon3 = document.getElementById("icon3");
+
+            if (dots0.style.display === "none") {
+                dots0.style.display = "inline";
+                btnText0.querySelector("span").textContent = "Read more";
+                moreText0.style.display = "none";
+                icon3.classList.remove("fa-arrow-up");
+                icon3.classList.add("fa-arrow-right");
+                card3.style.height = "724px";
+            } else {
+                dots0.style.display = "none";
+                 btnText0.querySelector("span").textContent = "Read less";
+                moreText0.style.display = "inline";
+                icon3.classList.remove("fa-arrow-right");
+                icon3.classList.add("fa-arrow-up");
+                 card3.style.height = "auto";
+            }
+        }
+
+
+
+
+
+</script>
+{% endblock %}

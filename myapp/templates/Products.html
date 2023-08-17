@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section id="product">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="products">
+                    <h1>All Products</h1>
+                    <div id="product_here" class="row mt-4 gy-4">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix mt-3">
+            <div class="box options">
+                <label>Requests Per Page: </label>
+                <select id="req_per_page" onchange="filter_requests()">
+                    <option>9</option>
+                    <option>18</option>
+                    <option>ALL</option>
+                </select>
+            </div>
+            <div class="box pagination">
+            </div>
+        </div>
+    </div>
+</section>
+<script src="{% static 'js/Main.js' %}"></script>
+<script>
+let database = [];
+let ard;
+    {% for a in myproducts %}
+    ard={
+        id: '{{ a.id }}',
+        image:"https://greatknightschess.com/media/{{a.image}}",
+        name:"{{a.product_name}}",
+        price:"{{a.price}}",
+    }
+    database.push(ard);
+    {% endfor %}
+    console.log(database);
+    const dataNo = { "req_per_page": document.getElementById("req_per_page").value, "page_no": 1 };
+pagination(dataNo, database);
+
+function filter_requests() {
+    const dataValue = { "req_per_page": document.getElementById("req_per_page").value, "page_no": 1 };
+    console.log(dataValue,"dataValue");
+    pagination(dataValue,database);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+{% endblock %}

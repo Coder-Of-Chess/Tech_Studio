@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<div>
+    <table id="request-table">
+    </table>
+</div>
+<div id="product_here">
+
+</div>
+
+<div class="clearfix">
+    <div class="box options">
+        <label>Requests Per Page: </label>
+        <select id="req_per_page" onchange="filter_requests()">
+            <option>5</option>
+            <option>10</option>
+            <option>ALL</option>
+        </select>
+    </div>
+    <div class="box pagination">
+    </div>
+</div>
+<script src="{% static 'js/Main.js' %}"></script>
+<script>
+let database = [];
+let ard;
+    {% for a in myproducts %}
+    ard={
+        image:"https://greatknightschess.com/media/{{a.image}}",
+        name:"{{a.product_name}}",
+        price:"{{a.price}}",
+    }
+    database.push(ard);
+    {% endfor %}
+    console.log(database);
+    const dataNo = { "req_per_page": document.getElementById("req_per_page").value, "page_no": 1 };
+    pagination(dataNo, database);
+function filter_requests() {
+    const dataValue = { "req_per_page": document.getElementById("req_per_page").value, "page_no": 1 };
+    console.log(dataValue,"dataValue");
+    pagination(dataValue,database);
+}
+function check() {
+    console.log('hello')
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+{% endblock %}

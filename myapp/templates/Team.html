@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!-- Meet the team -->
+
+    <section id="meet" class="mt-lg-5 mt-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 team">
+                    <h1>ABOUT US</h1>
+                    <div class="row">
+                        <div class="col-lg-4 col-12">
+                            <div class="chess-img mx-auto">
+                                <img src="{% static 'img/Meet/Team.jpg'%}" width="100%" alt="not found">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-8 col-12 mt-lg-0 mt-3">
+                            <div class="chess-content">
+                                <h4>Vegas Great Knights</h4>
+                                <p class="mt-3"><span style="font-weight:700; color:#5e5e5e">The Vegas Great
+                                        Knights</span> look to develop social and life skills in addition to mental
+                                    and emotional ones. All members of the Vegas Great Knights are part of a team. They
+                                    have a chance to meet and play with other members of the team at various group
+                                    meet-ups we organize such as our chess and hockey event. We also have team shirts
+                                    and jerseys that members proudly wear with last names on the back.</p>
+                                <p><span style="font-weight:700; color:#5e5e5e">Our highly skilled instructors</span>
+                                    pass background checks and are tested not only for
+                                    their chess and teaching abilities but for their attitude and how it will translate
+                                    to our member's experience. </p>
+                                <p><em> “Our passion is teaching chess to children who want to learn the game, have fun,
+                                        be
+                                        part of a positive team, and cultivate valuable life skills.”</em></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team-cards -->
+
+    <section id="team-cards">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 team-content-section">
+                    <h1>MEET THE TEAM</h1>
+                    <div class="row mt-lg-4 mt-md-4 mt-1 gy-4">
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div class="card card_data" style="height: auto;">
+                                <div class="card_img mx-auto d-flex justify-content-center px-4">
+                                    <img src="{% static 'img/Meet/coach.jpeg'%}" class=""
+                                        style="width:100%;" alt="not found">
+                                </div>
+                                <div class="card-body mt-3">
+                                    <h4 class="mt-3">Coach Seth Berger</h4>
+                                    <p>Seth Berger has been teaching chess for many years and has been playing since the
+                                        age of five. Some of his chess accolades include being ranked in the top 25 in
+                                        the United States for his age group when he was younger, tying for the second in
+                                        the Nationals in his younger years as well, and being the Syosset High School
+                                        chess team captain who won the Nassau HS League title.<span
+                                            id="dotscard-a">...</span><span id="morecard-a"> He has taught chess in
+                                            various
+                                            programs in New York such as Syosset Chess Mates and Glen Head elementary.
+                                            Seth holds a degree from UCLA. His chess skills helped him achieve success
+                                            as a poker player before returning his focus to coaching chess. </span></p>
+                                    <button onclick="mycarda()" id="mycard-a" class="read">Read more</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+{% endblock %}
